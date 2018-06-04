@@ -1,0 +1,111 @@
+<form class="form-signin">
+  <h1 class="h3 mb-3 mt-3 font-weight-normal">Atnaujinti prekę</h1>
+  <div class="form-group ">
+    <label for="validationDefault01">Pavadinimas</label>
+    <input type="text" class="form-control" id="validationDefault01" placeholder="Pavadinimas" [(ngModel)]="editableItem.Name"
+      name="name" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleSelect1">Kategorija</label>
+    <select class="form-control" id="exampleSelect1" [(ngModel)]="editableItem.Categories[0]">
+      <option *ngFor="let category of categories" value="category">{{category.Name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03">Aprašymas</label>
+    <textarea class="form-control" rows="5" id="desc" name="description" placeholder="Trumpas prekės aprašymas" [(ngModel)]="editableItem.Description"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="validationDefault02">Kodas</label>
+    <input type="text" class="form-control" id="validationDefault03" placeholder="Vidinis prekės kodas" [(ngModel)]="editableItem.SkuCode"
+      name="code" required>
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03">Kaina</label>
+    <input type="number" class="form-control" id="validationDefault04" placeholder="Kaina eurais" [(ngModel)]="editableItem.Price"
+      name="price" required>
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03">Nuolaida</label>
+    <input type="number" class="form-control" id="validationDefault05" placeholder="Nuolaida procentais" [(ngModel)]="editableItem.Discount"
+      name="discount">
+  </div>
+  <!-- <div class="form-group">
+      <label for="validationDefault03">Galutinė kaina</label>
+      <input type="number" class="form-control" id="validationDefault05" placeholder="Galutinė kaina" name="galutineKaina" value="{{(editableItem.Price)}}" disabled>
+    </div> -->
+  <div class="form-group">
+    <label for="validationDefault03">Nuotrauka</label>
+    <input type="text" class="form-control" id="validationDefault05" placeholder="Nuotraukos URL" [(ngModel)]="editableItem.Images"
+      name="photo">
+  </div>
+  <h5>Papildoma informacija</h5>
+  <div class="form-group">
+    <label for="validationDefault03">Ilgis</label>
+    <input type="string" class="form-control" id="validationDefault05" placeholder="Ilgis" [(ngModel)]="editableItem.Property.Ilgis"
+      name="color">
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03">Plotis</label>
+    <input type="string" class="form-control" id="validationDefault05" placeholder="Plotis" [(ngModel)]="editableItem.Property.Plotis"
+      name="manufacturer">
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03">Ratai</label>
+    <input type="string" class="form-control" id="validationDefault05" placeholder="Ratai" [(ngModel)]="editableItem.Property.Ratai"
+      name="weight">
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03">Guoliai</label>
+    <input type="string" class="form-control" id="validationDefault05" placeholder="Guoliai" [(ngModel)]="editableItem.Property.Guoliai"
+      name="batteryLife">
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03">Maksimalus svoris</label>
+    <input type="string" class="form-control" id="validationDefault05" placeholder="Maksimalus svoris" [(ngModel)]="editableItem.Property.MaksimalusSvoris"
+      name="energyConsumption">
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03">Spalva</label>
+    <input type="string" class="form-control" id="validationDefault05" placeholder="Spalva" [(ngModel)]="editableItem.Property.Spalva"
+      name="size">
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03">Ašys</label>
+    <input type="string" class="form-control" id="validationDefault05" placeholder="Ašys" [(ngModel)]="editableItem.Property.Asys"
+      name="volume">
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03">Paskirtis</label>
+    <input type="string" class="form-control" id="validationDefault05" placeholder="Paskirtis" [(ngModel)]="editableItem.Property.Paskirtis"
+      name="resolution">
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03">Gamintojas</label>
+    <input type="string" class="form-control" id="validationDefault05" placeholder="Gamintojas" [(ngModel)]="editableItem.Property.Gamintojas"
+      name="warranty">
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03">Dydis</label>
+    <input type="text" class="form-control" id="validationDefault05" placeholder="Dydis" [(ngModel)]="editableItem.Property.Dydis"
+      name="additionalInfo">
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03">Storis</label>
+    <input type="text" class="form-control" id="validationDefault05" placeholder="Storis" [(ngModel)]="editableItem.Property.Storis"
+      name="additionalInfo">
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03">Kietumas</label>
+    <input type="text" class="form-control" id="validationDefault05" placeholder="Kietumas" [(ngModel)]="editableItem.Property.Kietumas"
+      name="additionalInfo">
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03">Paskirtis</label>
+    <input type="text" class="form-control" id="validationDefault05" placeholder="Paskirtis" [(ngModel)]="editableItem.Property.Skirta"
+      name="additionalInfo">
+  </div>
+  <div class="form-check mb-3">
+  </div>
+  <button class="btn btn-primary" type="submit" (click)="updateItem()">Atnaujinti prekę</button>
+</form>

@@ -1,0 +1,19 @@
+<div class="row mt-3">
+  <div class="col-sm-3">
+    <button [hidden]="userService.userRole != 2" routerLink="/item-create" type="button" class="btn btn-primary mb-2">
+      Sukurti prekę
+    </button>
+    <button [hidden]="userService.userRole != 2" routerLink="/category-create" type="button" class="btn btn-primary mb-2">
+      Sukurti kategoriją
+    </button>
+    <h5>Kategorijos</h5>
+    <div *ngFor="let category of categories" class="">
+      <a href="/home/{{category.Name}}">{{category.Name}}</a>
+    </div>
+  </div>
+  <div class="row col-sm-9">
+    <div *ngFor="let item of (items | itemSearchFilter : this.searchText)" class="panel panel-primary col-md-4">
+      <app-item [item]="item"></app-item>
+    </div>
+  </div>
+</div>

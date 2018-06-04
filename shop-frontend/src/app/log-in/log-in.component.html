@@ -1,0 +1,23 @@
+<form class="form-signin mt-3">
+  <h1 class="h3 mb-3 font-weight-normal">Prisijunkite</h1>
+  <div class="form-group">
+      <!-- <label for="validationDefault01">Vardas</label>
+      <input type="text" class="form-control" id="validationDefault01" placeholder="Vardas" value="Vardenis" required> -->
+      <label for="inputEmail">El. pašto adresas</label>
+      <input type="email" id="inputEmail" class="form-control mt-1" placeholder="vardas@pastas.lt" [(ngModel)]="user.Email" required="" autofocus="" name="email">    
+    </div>
+  <div class="form-group">
+    <label for="inputPassword">Slaptažodis</label>
+    <input type="password" id="inputPassword" class="form-control mt-1" placeholder="Slaptažodis" [(ngModel)]="user.PasswordHash" required="" name="password">
+  </div>
+  <!-- <div class="checkbox mb-3 mt-1">
+    <label>
+      <input type="checkbox" value="remember-me"> Prisiminti mane
+    </label>
+  </div> -->
+  <button class="btn btn-primary" type="submit" (click)="logIn()">Prisijungti</button>
+  <a routerLink="/sign-in" class="btn btn-link" href="/#" role="button">Neturite paskyros? Prisiregistruokite</a>
+  <p class="mt-3">
+    {{success}}
+  </p>
+</form>

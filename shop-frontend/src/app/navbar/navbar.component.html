@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="home">Prekės</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/log-in" *ngIf="!userService.loggedIn">Prisijungti</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/sign-in" *ngIf="!userService.loggedIn">Registracija</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/cart" >Krepšelis
+          <span class="badge badge-primary">€{{cartService.cart.price}}</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/orders" [hidden]="!userService.loggedIn">Užsakymai</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/users" [hidden]="userService.userRole != 2">Pirkėjai</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/user-edit" [hidden]="!userService.loggedIn">Mano paskyra</a>
+      </li>
+
+      <!-- <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Mano paskyra
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="nav-link" routerLink="/log-in">Prisijungti</a>
+          <a class="nav-link" routerLink="/sign-in">Registracija</a>
+          <div class="dropdown-divider"></div>
+          <a class="nav-link" routerLink="/user-edit">Mano paskyra</a>
+
+          <a class="nav-link" routerLink="/cart">Krepšelis
+            <span class="badge badge-primary">€{{cartService.cart.price}}</span>
+          </a>
+        </div>
+      </li> -->
+
+      <li class="nav-item">
+        <button type="button" [hidden]="!userService.loggedIn" class="btn btn-outline-secondary" (click)="logout()" >Atsijungti</button>
+      </li>
+      <!-- <li class="nav-item"  
+        >
+        <a class="nav-link" href="#">Link</a>
+      </li> -->
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-4" type="search" placeholder="Ieškoti" aria-label="Search" [(ngModel)]="searchText" name="search">
+      <button (click)="search(searchText)" class="btn btn-outline-success my-2 my-sm-0" type="submit">Paieška</button>
+    </form>
+  </div>
+</nav>

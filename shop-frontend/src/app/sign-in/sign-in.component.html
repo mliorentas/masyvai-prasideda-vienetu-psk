@@ -1,0 +1,60 @@
+<form class="form-signin" (ngSubmit)="createUser()" #signinForm="ngForm">
+  <h1 class="h3 mb-3 mt-3 font-weight-normal">Prisiregistruokite</h1>
+  <div class="form-group ">
+    <label for="validationDefault01">Vardas</label>
+    <input type="text" class="form-control" id="name" placeholder="Vardas (Privalomas)" [(ngModel)]="user.FirstName" name="firstName" #firstName="ngModel" required>
+  </div>
+  <div class="form-group">
+    <label for="validationDefault02">Pavardė</label>
+    <input type="text" class="form-control" id="validationDefault02" placeholder="Pavardė (Privalomas)" [(ngModel)]="user.SecondName" name="lastName"
+      required>
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03">El. paštas</label>
+    <input type="email" class="form-control" id="validationDefault06" placeholder="El. paštas (Privalomas)" [(ngModel)]="user.Email"
+      name="email" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Slaptažodis</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Slaptažodis (Privalomas)" [(ngModel)]="user.PasswordHash"
+      name="password" required>
+  </div>
+  <!-- <div class="form-group">
+    <label for="exampleInputPassword1">Pakartokite slaptažodį</label>
+    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Slaptažodis">
+  </div> -->
+  <div class="form-group">
+    <label for="validationDefault03">Telefono numeris</label>
+    <input type="text" class="form-control" id="validationDefault07" placeholder="Telefonas (Privalomas)" [(ngModel)]="user.PhoneNumber"
+      name="phone" required>
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03">Miestas</label>
+    <input type="text" class="form-control " id="validationDefault03" placeholder="Miestas (Privalomas)" required [(ngModel)]="user.City" name="city"
+      required>
+  </div>
+  <div class="form-group">
+    <label for="validationDefault04">Gatvė</label>
+    <input type="text" class="form-control" id="validationDefault04" placeholder="Gatvė (Privalomas)" required [(ngModel)]="user.Street"
+      name="street" required>
+  </div>
+  <div class="form-group">
+    <label for="validationDefault05">Pastato numeris</label>
+    <input type="text" class="form-control" id="validationDefault05" placeholder="Namo numeris (Privalomas)" [(ngModel)]="user.HouseNumber" name="houseNumber"
+      required>
+  </div>
+  <div class="form-group">
+    <label for="validationDefault05">Pašto kodas</label>
+    <input type="text" class="form-control" id="validationDefault08" placeholder="Pašto kodas (Privalomas)" [(ngModel)]="user.Zip" name="zip" required>
+  </div>
+  <!-- <div class="form-check mb-3">
+    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+    <label class="form-check-label" for="invalidCheck2">
+      Sutinku su vartojimo sąlygomis
+    </label>
+  </div> -->
+  <button class="btn btn-primary"   type="submit" [disabled]="!signinForm.form.valid">Sukurti paskyrą</button>
+  <p class="mt-3">
+    {{signinResult}}
+  </p>
+</form>

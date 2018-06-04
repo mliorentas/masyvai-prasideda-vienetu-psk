@@ -1,0 +1,32 @@
+<form class="form-signin" (ngSubmit)="performPayment()" #performPaymentForm="ngForm">
+  <h1 class="h3 mb-3 mt-3 font-weight-normal">Mokėjimas</h1>
+  <div class="form-group">
+    <label for="order">Užsakymo numeris</label>
+    <input type="text" class="form-control" id="order" [ngModel]="this.orderService.orderToPay.Id" name="order" readonly>
+  </div>
+  <div class="form-group">
+    <label for="amount">Mokėjimo suma</label>
+    <input type="text" class="form-control" id="amount" [ngModel]="payment.amount" name="amount" readonly>
+  </div>
+  <div class="form-group">
+    <label for="number">Kortelės numeris</label>
+    <input type="text" class="form-control" id="number" placeholder="4111 1111 1111 1111 (Privalomas)" [(ngModel)]="payment.number" name="number" required>
+  </div>
+  <div class="form-group">
+    <label for="holder">Kortelės savininko vardas ir pavardė</label>
+    <input type="text" class="form-control" id="holder" placeholder="Vardas Pavardė (Privalomas)" [(ngModel)]="payment.holder" name="holder">
+  </div>
+  <div class="form-group">
+    <label for="exp_year">Kortelės galiojimo metai</label>
+    <input type="text" class="form-control" id="exp_year" placeholder="2018 (Privalomas)" [(ngModel)]="payment.exp_year" name="exp_year" required>
+  </div>
+  <div class="form-group">
+    <label for="exp_month">Kortelės galiojimo mėnuo</label>
+    <input type="text" class="form-control" id="exp_month" placeholder="9 (Privalomas)" [(ngModel)]="payment.exp_month" name="exp_month" required>
+  </div>
+  <div class="form-group">
+    <label for="cvv">Kortelės CVV saugos kodas</label>
+    <input type="text" class="form-control" id="cvv" placeholder="123 (Privalomas)" required [(ngModel)]="payment.cvv" name="cvv" required>
+  </div>
+  <button class="btn btn-primary" type="submit" [disabled]="!performPaymentForm.form.valid">Atlikti mokėjimą</button>
+</form>

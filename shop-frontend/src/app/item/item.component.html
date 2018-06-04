@@ -1,0 +1,41 @@
+<div class="mt-3 item">
+  <!-- kol kas neturim kategoriju issiaiskine -->
+  <!-- <h6>{{item.Category}}</h6> -->
+  <div class="panel-heading h5">
+    <a routerLink="/item-details/{{item.Id}}">{{item.Name}}</a>
+  </div>
+  <div class="panel-body">
+    <div class="inline">
+      <div>
+        <a routerLink="/item-details/{{item.Id}}">
+          <img src="{{item.Images[0].ImageUrl}}" alt="Prekės nuotrauka" class="img-thumbnail">
+        </a>
+      </div>
+      <div >
+        <div style="max-height:150px; overflow:hidden;">
+          <p>{{item.Description}}</p>
+        </div>
+        <div>
+          <p *ngIf="!item.Discount">{{item.Price}}€</p>
+          <p *ngIf="item.Discount" style="color:green;">{{item.DiscountedPrice}}€({{item.Price}}€)</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button type="button" (click)="addItem(item)" class="btn btn-primary item-buttons mr-2 mb-2">Pirkti</button>
+      <!-- <button [hidden]="userService.userRole != 2" (click)="removeItem(item)" type="button" class="btn btn-danger mb-2 mr-2">
+        Panaikinti
+      </button> -->
+      <button [hidden]="userService.userRole != 2" (click)="deleteItem(item)" type="button" class="btn btn-danger mb-2 mr-2">
+        Ištrinti
+      </button>
+      <button [hidden]="userService.userRole != 2" routerLink="/item-edit/{{item.Id}}" type="button" class="btn btn-light mb-2">
+        Redaguoti
+      </button>
+    </div>
+  </div>
+  <div>
+    <form>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<form class="form-signin">
+  <h1 class="h3 mb-3 mt-3 font-weight-normal">Sukurkite naują kategoriją</h1>
+  <div class="form-group ">
+    <label for="validationDefault01">Pavadinimas</label>
+    <input type="text" class="form-control" id="validationDefault01" placeholder="Pavadinimas" [(ngModel)]="newCategory.Name"
+    [ngModelOptions]="{standalone: true}" required>
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03">Aprašymas</label>
+    <textarea class="form-control" rows="5" id="desc" name="description" placeholder="Trumpas kategorijos aprašymas" [(ngModel)]="newCategory.Description"></textarea>
+  </div>
+  <button class="btn btn-primary" type="submit" (click)="createCategory()">Sukurti kategoriją</button>
+</form>

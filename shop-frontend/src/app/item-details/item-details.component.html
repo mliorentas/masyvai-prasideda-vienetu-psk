@@ -1,0 +1,72 @@
+<div *ngIf="item">
+  <div class="row mt-3">
+    <!-- photo -->
+    <div class="col-sm-4">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <div *ngFor="let photo of item.Images; let index = index">
+            <li *ngIf="i==0;else photoInactive" data-target="#carouselExampleIndicators" data-slide-to="index" class="active"></li>
+          </div>
+        </ol>
+        <div class="carousel-inner">
+          <div *ngFor="let photo of item.Images; let i = index">
+            <div *ngIf="i==0;else photoInactive" class="carousel-item active">
+              <img class="d-block w-100" src="{{photo.ImageUrl}}">
+            </div>
+            <ng-template #photoInactive>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="{{photo.ImageUrl}}">
+              </div>
+            </ng-template>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Ankstesnis</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Sekentis</span>
+        </a>
+      </div>
+    </div>
+    <!-- info -->
+    <div class="col-sm-5">
+      <h3>Prekės aprašymas</h3>
+      <table class="table" cellspacing="0" style="max-height: 28px">
+        <tbody>
+          <tr>
+            <th scope="row">Prekės pavadinimas</th>
+            <td>{{item.Name}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Prekės aprašymas</th>
+            <td>{{item.Description}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Prekės kategorija</th>
+            <td>{{item.Categories[0].Name}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Kodas: </th>
+            <td>{{item.SkuCode}}</td>
+          </tr>
+          <!-- <tr>
+            <th scope="row">Prekės atributai</th>
+            <td>
+              <p *ngFor="let attr of item.Property">{{attr}} </p>
+            </td>
+          </tr> -->
+          <tr>
+            <th scope="row">Prekės kaina</th>
+            <td>€{{item.Price}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <button type="button" (click)="buyItem()" class="btn btn-primary item-buttons">Pirkti</button>
+      </div>
+    </div>
+  </div>
+  <button (click)="goBack()" class="btn btn-secondary mt-3">Atgal</button>
+</div>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7d0e2827d8c94d94a429313183d2b41d" Name="Diagram1" >
+        <EntityTypeShape EntityType="ArrayStartAtOneCtx.User" Width="1.5" PointX="6" PointY="0.5" />
+        <EntityTypeShape EntityType="ArrayStartAtOneCtx.Item" Width="1.5" PointX="8.875" PointY="0.75" />
+        <EntityTypeShape EntityType="ArrayStartAtOneCtx.Order" Width="1.5" PointX="1.75" PointY="1" />
+        <EntityTypeShape EntityType="ArrayStartAtOneCtx.Category" Width="1.5" PointX="11.125" PointY="1.125" />
+        <EntityTypeShape EntityType="ArrayStartAtOneCtx.Image" Width="1.5" PointX="11.25" PointY="5.5" />
+        <AssociationConnector Association="ArrayStartAtOneCtx.ItemCategory" />
+        <AssociationConnector Association="ArrayStartAtOneCtx.ItemImage" />
+        <EntityTypeShape EntityType="ArrayStartAtOneCtx.UserSession" Width="1.5" PointX="4.5" PointY="3.875" />
+        <AssociationConnector Association="ArrayStartAtOneCtx.UserUserSession" />
+        <EntityTypeShape EntityType="ArrayStartAtOneCtx.Properties" Width="1.5" PointX="6.75" PointY="4.125" />
+        <AssociationConnector Association="ArrayStartAtOneCtx.ItemProperties" />
+        <AssociationConnector Association="ArrayStartAtOneCtx.OrderUser" />
+        <AssociationConnector Association="ArrayStartAtOneCtx.OrderItem" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

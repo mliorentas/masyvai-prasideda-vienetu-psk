@@ -1,0 +1,9 @@
+<form class="form-inline">
+  <div class="form-group mt-2 mb-2">
+    <label [hidden]="userService.userRole != 2" for="inputPassword2" class="sr-only">Password</label>
+    <input [hidden]="userService.userRole != 2" class="form-control mr-sm-4" type="text" placeholder="Nauja būsena" [(ngModel)]="newStatus"
+      name="newStatus">
+  </div>
+  <button [hidden]="userService.userRole != 2" type="submit" class="btn btn-primary mb-2 mt-2 mr-2" (click)="updateStatus(newStatus, order)">Keisti būseną</button>
+  <button [hidden]="isPaid(order) || !orderService.isOrderOfCurrentUser(order)" type="submit" class="btn btn-success mb-2 mt-2" (click)="payOrder(order)">Apmokėti</button>
+</form>
